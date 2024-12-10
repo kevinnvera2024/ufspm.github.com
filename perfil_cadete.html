@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Cadete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .photo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .photo img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 0;
+            border: 2px solid #ccc; /* Añadido borde para destacar */
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .tab:hover, .tab.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .content-section {
+            display: none;
+            padding: 20px 0;
+        }
+        .content-section.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        /* Botones para Agregar, Modificar, Eliminar */
+        .controls {
+            margin-top: 10px;
+            text-align: right;
+        }
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+        .controls button:hover {
+            opacity: 0.9;
+        }
+        .controls .delete {
+            background-color: #dc3545; /* Rojo */
+        }
+        .controls .edit {
+            background-color: #ffc107; /* Amarillo */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Perfil del Cadete</h1>
+
+        <!-- Foto del cadete -->
+        <div class="photo">
+            <img src="https://media.gettyimages.com/id/1166242/es/foto/suspected-terrorist-osama-bin-laden-is-seen-in-this-undated-photo-in-afghanistan-a-pakistani.jpg?s=612x612&w=gi&k=20&c=6QJj6abNn4PjqHBbjHqOvH9009wp91Nk2foDtdhvCxU=" alt="Foto del cadete">
+        </div>
+
+        <!-- Pestañas -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('datos')">Datos</div>
+            <div class="tab" onclick="showTab('sanciones')">Sanciones</div>
+            <div class="tab" onclick="showTab('sumarios')">Sumarios</div>
+            <div class="tab" onclick="showTab('certificados')">Certificados Médicos</div>
+            <div class="tab" onclick="showTab('servicios')">Servicios Realizados</div>
+        </div>
+
+        <!-- Sección de contenido -->
+        <div class="content-section active" id="datos">
+            <h2>Datos del Cadete</h2>
+            <table>
+                <tr>
+                    <th>Número de Legajo</th>
+                    <td>001</td>
+                </tr>
+                <tr>
+                    <th>Nombre Completo</th>
+                    <td>Juan Pérez</td>
+                </tr>
+                <tr>
+                    <th>Año</th>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <th>DNI</th>
+                    <td>12345678</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="content-section" id="sanciones">
+            <h2>Sanciones</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Motivo</th>
+                        <th>Duración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-03-15</td>
+                        <td>Incumplimiento de horarios</td>
+                        <td>3 días</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Botones para Sanciones -->
+            <div class="controls">
+                <button onclick="agregarRegistro('sanción')">Agregar</button>
+                <button class="edit" onclick="modificarRegistro('sanción')">Modificar</button>
+                <button class="delete" onclick="eliminarRegistro('sanción')">Eliminar</button>
+            </div>
+        </div>
+
+        <div class="content-section" id="sumarios">
+            <h2>Sumarios</h2>
+            <p>No se registran sumarios en el historial.</p>
+            <!-- Botones para Sumarios -->
+            <div class="controls">
+                <button onclick="agregarRegistro('sumario')">Agregar</button>
+                <button class="edit" onclick="modificarRegistro('sumario')">Modificar</button>
+                <button class="delete" onclick="eliminarRegistro('sumario')">Eliminar</button>
+            </div>
+        </div>
+
+        <div class="content-section" id="certificados">
+            <h2>Certificados Médicos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Motivo</th>
+                        <th>Duración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-04-10</td>
+                        <td>Enfermedad</td>
+                        <td>5 días</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Botones para Certificados -->
+            <div class="controls">
+                <button onclick="agregarRegistro('certificado médico')">Agregar</button>
+                <button class="edit" onclick="modificarRegistro('certificado médico')">Modificar</button>
+                <button class="delete" onclick="eliminarRegistro('certificado médico')">Eliminar</button>
+            </div>
+        </div>
+
+        <div class="content-section" id="servicios">
+            <h2>Servicios Realizados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-01-10</td>
+                        <td>Participación en acto de conmemoración</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Botones para Servicios -->
+            <div class="controls">
+                <button onclick="agregarRegistro('servicio')">Agregar</button>
+                <button class="edit" onclick="modificarRegistro('servicio')">Modificar</button>
+                <button class="delete" onclick="eliminarRegistro('servicio')">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Oculta todas las secciones
+            document.querySelectorAll('.content-section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Remueve la clase "active" de todas las pestañas
+            document.querySelectorAll('.tab').forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            // Muestra la sección seleccionada
+            document.getElementById(tabId).classList.add('active');
+
+            // Agrega la clase "active" a la pestaña seleccionada
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+        }
+
+        function agregarRegistro(tipo) {
+            alert("Agregar nuevo " + tipo);
+        }
+
+        function modificarRegistro(tipo) {
+            alert("Modificar " + tipo);
+        }
+
+        function eliminarRegistro(tipo) {
+            const confirmacion = confirm("¿Está seguro de que desea eliminar este " + tipo + "?");
+            if (confirmacion) {
+                alert(tipo.charAt(0).toUpperCase() + tipo.slice(1) + " eliminado exitosamente.");
+            }
+        }
+    </script>
+</body>
+</html>

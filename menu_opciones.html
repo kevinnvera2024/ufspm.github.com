@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legajo de Cadetes y Personal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seleccione una opción</h1>
+    <div class="button-container">
+        <!-- Formulario que envía al archivo PHP -->
+        <form action="procesar.php" method="POST">
+            <button type="submit" name="accion" value="cadetes">Ver legajo de Cadetes</button>
+            <button type="submit" name="accion" value="personal">Ver legajo del Personal</button>
+        </form>
+    </div>
+</body>
+</html>

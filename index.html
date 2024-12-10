@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0; /* Aseguramos que no haya márgenes */
+        }
+        header {
+            background-color: #141E37; /* Color del encabezado */
+            color: white;
+            text-align: center;
+            padding: 10px; /* Reducción de padding para hacer el encabezado más corto */
+            width: 100%;
+            position: absolute; /* Permite que el encabezado esté fijo en la parte superior */
+            top: 0; /* Alinea el encabezado en la parte superior */
+        }
+        header img {
+            width: 200px; /* Tamaño de la imagen cuadrada */
+            height: 200px; /* Tamaño de la imagen cuadrada */
+            border-radius: 10%; /* Bordes redondeados */
+            margin-bottom: 5px; /* Espacio entre la imagen y el título */
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 220px; /* Espacio para el encabezado */
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center; /* Centra el título */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Botón ocupa todo el ancho */
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="313433657_136475269171371_3961659974749889912_n.jpg" alt="Logo">
+    </header>
+    
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2> <!-- Título movido fuera del encabezado -->
+        <form action="login.php" method="POST">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+</body>
+</html>

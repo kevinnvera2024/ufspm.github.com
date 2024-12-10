@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cadetes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        .remove {
+            background-color: #dc3545;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Cadetes
+        <div class="controls">
+            <button onclick="agregarCadete()">+</button>
+                </div>
+    </h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Número de Legajo</th>
+                <th>Nombre Completo</th>
+                <th>Año</th>
+                <th>DNI</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="cadete1">
+                <td><img src="ruta_a_la_foto1.jpg" alt="Foto Cadete 1" style="width: 60px; height: 60px; border-radius: 50%;"></td>
+                <td>001</td>
+                <td>Juan Pérez</td>
+                <td>2</td>
+                <td>12345678</td>
+                <td>
+                    <div class="actions">
+                        <button class="view" onclick="redirigirPagina('cadete1')">Ver Más</button>
+                        <button class="remove" onclick="confirmarRemover('cadete1')">Eliminar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Función para redirigir a una página específica
+        function redirigirPagina(cadeteId) {
+            // Simula que cada cadete tiene una página de perfil específica
+            // Cambia 'cadeteId' por una URL dinámica si es necesario
+            window.location.href = 'perfil_cadete.html?id=' + cadeteId;
+        }
+
+        function confirmarRemover(cadeteId) {
+            const confirmation = confirm("¿Está seguro de que desea remover este usuario? Esta acción no se puede deshacer.");
+            if (confirmation) {
+                document.getElementById(cadeteId).remove();
+                alert("Cadete removido exitosamente.");
+            }
+        }
+    </script>
+</body>
+</html>
